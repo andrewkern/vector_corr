@@ -1,7 +1,8 @@
 import numpy as np
 
-# porting over code for the Crosby et al (1993)
+# Python implementation of Crosby et al (1993)
 # vector correlation
+# https://doi.org/10.1175/1520-0426(1993)010%3C0355:APDFVC%3E2.0.CO;2
 
 def veccor(u1, v1, u2, v2):
     """
