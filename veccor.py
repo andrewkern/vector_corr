@@ -7,20 +7,14 @@ import numpy as np
 def veccor(u1, v1, u2, v2):
     """
     input is two vector timeseries
-    u is angle? v is magnitude?
+    cartesian coords
     """
-    
-    # not sure we need to do this centering
-    #u1 -= np.mean(u1)
-    #v1 -= np.mean(v1)
-    #u2 -= np.mean(u2)
-    #v2 -= np.mean(v2)
+
     # stuff vectors into matrix
     x = np.array([u1,v1,u2,v2])
     # compute covariance matrix
     sigma = np.cov(x)
     # f terms are those that appear from left to right in Crosby et al
-    # need to double check these-- likely bug in indexes called
     f1 = sigma[0,0] * ((sigma[2,2] * sigma[1,3]**2) + (sigma[3,3] * sigma[1,2]**2))
     f2 = sigma[1,1] * ((sigma[2,2] * sigma[0,3]**2) + (sigma[3,3] * sigma[0,2]**2))
     f3 = 2 * sigma[0,1] * sigma[0,3] * sigma[1,2] * sigma[2,3]
